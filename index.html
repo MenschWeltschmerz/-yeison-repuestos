@@ -256,8 +256,11 @@
   @media (hover:none){ .il-preview{display:none;} }
 
   /* TIPOS DE REPUESTO */
-  .tipos-band{background:var(--graphite); color:#fff;}
+  .tipos-band{background:var(--graphite); color:#fff; position:relative; overflow:hidden;}
   .tipos-band .section-head p{color:#9EA2AC;}
+  .tipos-bg{position:absolute; inset:0; width:100%; height:100%; color:var(--amber); opacity:0.07; pointer-events:none; z-index:0;}
+  @media (max-width:880px){ .tipos-bg{display:none;} }
+  .tipos-band > .wrap{position:relative; z-index:1;}
   .tipos-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);}
   .tipo-card{background:var(--graphite-2); padding:28px 24px; transition:transform .25s ease, box-shadow .25s ease;}
   .tipo-card:hover{transform:translateY(-4px); box-shadow:0 10px 24px -8px rgba(255,177,0,0.25);}
@@ -650,6 +653,18 @@
 <div class="hazard"></div>
 
 <section class="tipos-band">
+  <svg class="tipos-bg" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <g transform="translate(60,50) rotate(-8)"><use href="#ic-frenos" width="90" height="90" x="-45" y="-45"/></g>
+    <g transform="translate(230,270) rotate(12)"><use href="#ic-suspension" width="85" height="85" x="-42.5" y="-42.5"/></g>
+    <g transform="translate(400,60) rotate(6)"><use href="#ic-motor" width="110" height="110" x="-55" y="-55"/></g>
+    <g transform="translate(540,290) rotate(-15)"><use href="#ic-filtros" width="75" height="75" x="-37.5" y="-37.5"/></g>
+    <g transform="translate(680,55) rotate(10)"><use href="#ic-electrico" width="95" height="95" x="-47.5" y="-47.5"/></g>
+    <g transform="translate(820,260) rotate(-5)"><use href="#ic-carroceria" width="125" height="125" x="-62.5" y="-62.5"/></g>
+    <g transform="translate(960,75) rotate(15)"><use href="#ic-caja" width="85" height="85" x="-42.5" y="-42.5"/></g>
+    <g transform="translate(1080,280) rotate(-10)"><use href="#ic-combustible" width="80" height="80" x="-40" y="-40"/></g>
+    <g transform="translate(160,160) rotate(20)"><use href="#ic-refrigeracion" width="65" height="65" x="-32.5" y="-32.5"/></g>
+    <g transform="translate(1010,180) rotate(-20)"><use href="#ic-embrague" width="90" height="90" x="-45" y="-45"/></g>
+  </svg>
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow" style="color:#FFB100;">SEGÚN TU PRESUPUESTO</span>
