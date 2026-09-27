@@ -1,4 +1,4 @@
-  :root{--bg:#EDEEF0;--surface:#FFFFFF;--ink:#14161A;--ink-soft:#4B4F58;--graphite:#1C1F26;--graphite-2:#262A33;--amber:#FFB100;--amber-ink:#231A00;--rust:#B33A2D;--green:#2F6F4E;--line:#D8D9DC;--line-strong:#B7B9BE;}
+  :root{--bg:#EDEEF0;--surface:#FFFFFF;--ink:#14161A;--ink-soft:#4B4F58;--graphite:#1C1F26;--graphite-2:#262A33;--amber:#FFB100;--amber-ink:#231A00;--rust:#B33A2D;--green:#2F6F4E;--line:#D8D9DC;--line-strong:#8A8D95;}
   :root:not([data-theme="light"]){ @media (prefers-color-scheme: dark){ --bg:#101216;--surface:#1A1D23;--ink:#F2F2F0;--ink-soft:#B7BAC2;--graphite:#0B0C0F;--graphite-2:#15171C;--line:#2C2F36;--line-strong:#3A3E47; } }
   :root[data-theme="dark"]{--bg:#101216;--surface:#1A1D23;--ink:#F2F2F0;--ink-soft:#B7BAC2;--graphite:#0B0C0F;--graphite-2:#15171C;--line:#2C2F36;--line-strong:#3A3E47;}
   *{box-sizing:border-box;}
@@ -58,7 +58,7 @@
   .list li:hover{border-color:var(--amber);transform:translateX(3px);}
 
   .other-cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
-  .other-cats a{font-size:13px;padding:8px 12px;border:1.5px solid var(--line-strong);text-decoration:none;color:var(--ink-soft);transition:transform .2s, border-color .2s, color .2s;}
+  .other-cats a{font-size:13px;padding:14px 12px;border:1.5px solid var(--line-strong);text-decoration:none;color:var(--ink-soft);transition:transform .2s, border-color .2s, color .2s;}
   .other-cats a:hover{border-color:var(--amber);color:var(--ink);transform:translateY(-2px);}
 
   footer{background:var(--graphite);color:#9EA2AC;padding:28px 0 calc(28px + env(safe-area-inset-bottom,0px));text-align:center;font-size:12px;}
@@ -85,6 +85,6 @@
     body{padding-bottom:calc(70px + env(safe-area-inset-bottom,0px));}
   }
 
-  :focus-visible{outline:3px solid var(--amber); outline-offset:2px;}
+  :focus-visible{outline:none; box-shadow: 0 0 0 2px var(--amber), 0 0 0 5px var(--graphite);}
   .skip-link{position:absolute; left:-9999px; top:0; background:var(--amber); color:var(--amber-ink); padding:12px 20px; font-weight:700; z-index:200; text-decoration:none;}
   .skip-link:focus{left:12px; top:12px;}

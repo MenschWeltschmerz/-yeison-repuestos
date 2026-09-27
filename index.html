@@ -63,7 +63,7 @@
     --rust:#B33A2D;
     --green:#2F6F4E;
     --line:#D8D9DC;
-    --line-strong:#B7B9BE;
+    --line-strong:#8A8D95;
   }
   :root:not([data-theme="light"]){
     @media (prefers-color-scheme: dark){
@@ -281,7 +281,7 @@
   .ask-chips{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px;}
   .ask-chip{
     font-family:'Work Sans'; font-size:13.5px; font-weight:600; text-decoration:none;
-    padding:10px 16px; border:1.5px solid var(--line-strong); background:var(--surface); color:var(--ink);
+    padding:14px 16px; border:1.5px solid var(--line-strong); background:var(--surface); color:var(--ink);
     transition:transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
   }
   .ask-chip:hover{background:var(--graphite); border-color:var(--graphite); color:#fff; transform:translateY(-2px);}
@@ -319,7 +319,7 @@
   /* FOOTER */
   footer{background:var(--graphite); color:#D6D8DD; padding:48px 0 32px; padding-bottom: calc(32px + env(safe-area-inset-bottom,0px));}
   .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:32px; padding-bottom:32px; border-bottom:1px solid #33363F;}
-  .foot-grid h4{color:#fff; font-size:13.5px; text-transform:uppercase; letter-spacing:0.04em; margin:0 0 14px; font-family:'Oswald';}
+  .foot-grid h3{color:#fff; font-size:13.5px; text-transform:uppercase; letter-spacing:0.04em; margin:0 0 14px; font-family:'Oswald';}
   .foot-grid p, .foot-grid a{font-size:14px; color:#B3B6BE; line-height:1.8; text-decoration:none; display:block;}
   .foot-grid a:hover{color:var(--amber);}
   .foot-bottom{display:flex; justify-content:space-between; padding-top:20px; font-size:12.5px; color:#7C8087; flex-wrap:wrap; gap:8px;}
@@ -377,7 +377,7 @@
     .stats-grid{grid-template-columns:1fr;}
   }
 
-  :focus-visible{outline:3px solid var(--amber); outline-offset:2px;}
+  :focus-visible{outline:none; box-shadow: 0 0 0 2px var(--amber), 0 0 0 5px var(--graphite);}
   .skip-link{position:absolute; left:-9999px; top:0; background:var(--amber); color:var(--amber-ink); padding:12px 20px; font-weight:700; z-index:200; text-decoration:none;}
   .skip-link:focus{left:12px; top:12px;}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
@@ -457,7 +457,7 @@
 </svg>
 
 <header>
-  <div class="nav">
+  <nav class="nav" aria-label="Principal">
     <a href="#" class="brand">YEISON<span>REPUESTOS</span></a>
     <ul class="nav-links">
       <li><a href="#">Inicio</a></li>
@@ -467,12 +467,13 @@
     </ul>
     <span class="nav-phone">Tel: +57 314 258 8506</span>
     <a class="cta-wsp" href="https://wa.me/573142588506" target="_blank" rel="noopener">Contáctanos</a>
-  </div>
+  </nav>
 </header>
 
 <div class="hazard"></div>
 
-<section id="main-content" class="hero">
+<main id="main-content" tabindex="-1">
+<section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-text">
       <span class="kicker">BOGOTÁ · ENVÍOS A NIVEL NACIONAL</span>
@@ -787,22 +788,23 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <h4>YeisonRepuestos</h4>
+        <h3>YeisonRepuestos</h3>
         <p>Repuestos nuevos y usados para todas las marcas, con inventario propio en Bogotá y despacho a nivel nacional.</p>
       </div>
       <div>
-        <h4>Contacto</h4>
+        <h3>Contacto</h3>
         <a href="https://wa.me/573142588506" target="_blank" rel="noopener">WhatsApp: 314 258 8506</a>
         <a href="https://wa.me/573057285428" target="_blank" rel="noopener">WhatsApp: 305 728 5428</a>
         <a href="mailto:ventas@yeisonrepuestos.com">ventas@yeisonrepuestos.com</a>
       </div>
       <div>
-        <h4>Navegación</h4>
+        <h3>Navegación</h3>
         <a href="filtros.html">Filtros y lubricantes</a>
         <a href="suspension.html">Suspensión y dirección</a>
         <a href="#catalogo">Escríbenos</a>
@@ -867,17 +869,19 @@
       target.y = e.clientY;
     });
 
+    function highlightRow(row){
+      list.querySelectorAll(".il-row").forEach(function(r){ r.classList.remove("is-active"); });
+      row.classList.add("is-active");
+      var listBounds = list.getBoundingClientRect();
+      var rowBounds = row.getBoundingClientRect();
+      highlight.style.top = (rowBounds.top - listBounds.top) + "px";
+      highlight.style.height = rowBounds.height + "px";
+      highlight.style.opacity = "1";
+    }
+
     list.querySelectorAll(".il-row").forEach(function(row){
       row.addEventListener("mouseenter", function(){
-        list.querySelectorAll(".il-row").forEach(function(r){ r.classList.remove("is-active"); });
-        row.classList.add("is-active");
-
-        var listBounds = list.getBoundingClientRect();
-        var rowBounds = row.getBoundingClientRect();
-        highlight.style.top = (rowBounds.top - listBounds.top) + "px";
-        highlight.style.height = rowBounds.height + "px";
-        highlight.style.opacity = "1";
-
+        highlightRow(row);
         previewIcon.querySelector("use").setAttribute("href", "#" + row.getAttribute("data-icon"));
         preview.style.clipPath = "inset(0%)";
         preview.style.opacity = "1";
@@ -892,6 +896,18 @@
       highlight.style.opacity = "0";
       preview.style.clipPath = "inset(50%)";
       preview.style.opacity = "0";
+    });
+
+    /* Equivalente por teclado: solo la barra de highlight (sin la vista previa flotante, que no tiene sentido sin posición de cursor) */
+    list.addEventListener("focusin", function(e){
+      var row = e.target.closest(".il-row");
+      if(row) highlightRow(row);
+    });
+    list.addEventListener("focusout", function(e){
+      if(!list.contains(e.relatedTarget)){
+        list.querySelectorAll(".il-row").forEach(function(r){ r.classList.remove("is-active"); });
+        highlight.style.opacity = "0";
+      }
     });
   })();
 </script>
