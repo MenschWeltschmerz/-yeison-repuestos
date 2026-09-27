@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231C1F26'/%3E%3Ctext x='50' y='70' font-family='Arial,sans-serif' font-size='58' font-weight='700' fill='%23FFB100' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
-<title>YEISONREPUESTOS — Repuestos nuevos y usados en Bogotá y a nivel nacional</title>
+<title>YeisonRepuestos — Repuestos de Carro en Bogotá</title>
 <meta name="description" content="Repuestos de carro nuevos y usados en Bogotá con envío a nivel nacional. Frenos, suspensión, motor, filtros, eléctricos y más, de todas las marcas. Cotiza por WhatsApp.">
-<meta name="robots" content="index, follow">
+<!-- TEMPORAL: quitar noindex/nofollow y volver a "index, follow" cuando el sitio pase a Hostinger -->
+<meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="YeisonRepuestos — Repuestos de carro en Bogotá y a nivel nacional">
 <meta property="og:description" content="Repuestos nuevos y usados de todas las marcas. Cotiza por WhatsApp y recibe en Bogotá o en cualquier ciudad del país.">
@@ -26,6 +27,7 @@
   "@context": "https://schema.org",
   "@type": "AutoPartsStore",
   "name": "YeisonRepuestos",
+  "telephone": "+573142588506",
   "description": "Repuestos de carro nuevos y usados, de todas las marcas, con despacho a nivel nacional.",
   "areaServed": ["Bogotá", "Colombia"],
   "address": {"@type": "PostalAddress", "addressLocality": "Bogotá", "addressCountry": "CO"},
@@ -223,6 +225,7 @@
   .il-highlight{
     position:absolute; left:0; right:0; top:0; height:0; opacity:0;
     background:var(--amber); z-index:1; pointer-events:none;
+    transition: top .35s cubic-bezier(.16,1,.3,1), height .35s cubic-bezier(.16,1,.3,1), opacity .3s ease;
   }
   .il-row{
     position:relative; z-index:2; display:grid;
@@ -251,6 +254,7 @@
     display:flex; align-items:center; justify-content:center;
     pointer-events:none; opacity:0; clip-path:inset(50%);
     transform:translate(-50%,-50%);
+    transition: clip-path .5s cubic-bezier(.4,0,.2,1), opacity .4s ease;
   }
   .il-preview svg{width:64px; height:64px; color:var(--amber);}
   @media (hover:none){ .il-preview{display:none;} }
@@ -816,7 +820,6 @@
 <a class="wsp-float" href="https://wa.me/573142588506" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 <div class="mobile-cta"><a href="https://wa.me/573142588506" target="_blank" rel="noopener">💬 Cotizar por WhatsApp</a></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
   window.goToAsk = function(){
     document.getElementById("catalogo").scrollIntoView({behavior:"smooth", block:"start"});
@@ -845,17 +848,19 @@
     var highlight = document.getElementById("il-highlight");
     var preview = document.getElementById("il-preview");
     var previewIcon = document.getElementById("il-preview-icon");
-    if(!list || !highlight || !preview || typeof gsap === "undefined") return;
+    if(!list || !highlight || !preview) return;
 
     var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     if(!canHover) return;
 
     var target = {x:0, y:0}, current = {x:0, y:0};
-    gsap.ticker.add(function(){
+    (function followLoop(){
       current.x += (target.x - current.x) * 0.2;
       current.y += (target.y - current.y) * 0.2;
-      gsap.set(preview, {x: current.x, y: current.y});
-    });
+      preview.style.left = current.x + "px";
+      preview.style.top = current.y + "px";
+      requestAnimationFrame(followLoop);
+    })();
 
     document.addEventListener("mousemove", function(e){
       target.x = e.clientX;
@@ -869,21 +874,13 @@
 
         var listBounds = list.getBoundingClientRect();
         var rowBounds = row.getBoundingClientRect();
-        gsap.to(highlight, {
-          y: rowBounds.top - listBounds.top,
-          height: rowBounds.height,
-          opacity: 1,
-          duration: 0.35,
-          ease: "power3.out"
-        });
+        highlight.style.top = (rowBounds.top - listBounds.top) + "px";
+        highlight.style.height = rowBounds.height + "px";
+        highlight.style.opacity = "1";
 
         previewIcon.querySelector("use").setAttribute("href", "#" + row.getAttribute("data-icon"));
-        gsap.to(preview, {
-          clipPath: "inset(0%)",
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.inOut"
-        });
+        preview.style.clipPath = "inset(0%)";
+        preview.style.opacity = "1";
       });
 
       row.addEventListener("mouseleave", function(){
@@ -892,8 +889,9 @@
     });
 
     list.addEventListener("mouseleave", function(){
-      gsap.to(highlight, {opacity: 0, duration: 0.3, ease: "power2.out"});
-      gsap.to(preview, {clipPath: "inset(50%)", opacity: 0, duration: 0.4, ease: "power3.inOut"});
+      highlight.style.opacity = "0";
+      preview.style.clipPath = "inset(50%)";
+      preview.style.opacity = "0";
     });
   })();
 </script>
