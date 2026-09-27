@@ -153,7 +153,13 @@
   }
   .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:24px; align-items:center;}
   .hero-text{text-align:left;}
-  .hero-art svg{width:100%; height:auto; max-width:460px; display:block; margin:0 auto;}
+  .hero-photo-wrap{position:relative; max-width:460px; margin:0 auto; padding:56px 30px 66px;}
+  .hero-photo{width:100%; height:auto; display:block;}
+  .hero-photo-lines{position:absolute; inset:0; width:100%; height:100%; overflow:visible;}
+  .hero-callout{position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:6px;}
+  .hero-callout-badge{width:56px; height:56px; border-radius:50%; background:var(--graphite-2); border:2px solid var(--amber); display:flex; align-items:center; justify-content:center;}
+  .hero-callout-badge svg{width:36px; height:36px; color:var(--amber);}
+  .hero-callout-label{font-family:'Roboto Mono', monospace; font-size:12px; color:#9EA2AC; white-space:nowrap;}
   .hero .kicker{
     font-family:'Roboto Mono', monospace; font-size:13px; color:var(--amber);
     letter-spacing:0.03em; display:block; margin-bottom:14px;
@@ -483,48 +489,29 @@
       <p style="font-family:'Roboto Mono',monospace; font-size:12.5px; color:#9EA2AC; margin:14px 0 0;">✓ Revisamos cada repuesto antes de despacharlo</p>
     </div>
     <div class="hero-art reveal">
-      <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
-        <!-- connector lines -->
-        <line x1="96" y1="96" x2="182" y2="225" stroke="#FFB100" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.6"/>
-        <line x1="560" y1="96" x2="330" y2="118" stroke="#FFB100" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.6"/>
-        <line x1="330" y1="352" x2="518" y2="228" stroke="#FFB100" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.6"/>
-
-        <!-- car silhouette -->
-        <g stroke="#C9CBD1" stroke-width="4" fill="none" stroke-linejoin="round">
-          <path d="M70 210 L95 210 C100 175 130 150 170 150 L230 150 C245 125 270 105 305 105 L370 105 C400 105 420 125 430 150 L500 150 C535 150 560 175 565 210 L580 210 L580 225 L555 225 C555 245 538 260 518 260 C498 260 481 245 481 225 L219 225 C219 245 202 260 182 260 C162 260 145 245 145 225 L70 225 Z"/>
-          <path d="M175 150 C180 130 200 115 225 115 L225 150 Z" />
-          <path d="M300 108 L300 150 L360 150 L360 112 C345 108 320 105 300 108 Z" />
-          <line x1="300" y1="150" x2="300" y2="225" stroke-width="2" opacity="0.5"/>
-        </g>
-        <circle cx="182" cy="225" r="30" fill="none" stroke="#C9CBD1" stroke-width="4"/>
-        <circle cx="182" cy="225" r="9" fill="#C9CBD1"/>
-        <circle cx="518" cy="225" r="30" fill="none" stroke="#C9CBD1" stroke-width="4"/>
-        <circle cx="518" cy="225" r="9" fill="#C9CBD1"/>
-
-        <!-- node dots on the car -->
-        <circle cx="182" cy="225" r="5" fill="#FFB100"/>
-        <circle cx="330" cy="118" r="5" fill="#FFB100"/>
-        <circle cx="518" cy="228" r="5" fill="#FFB100"/>
-
-        <!-- callout: suspensión -->
-        <g>
-          <circle cx="70" cy="70" r="28" fill="#262A33" stroke="#FFB100" stroke-width="2"/>
-          <svg x="52" y="52" width="36" height="36" viewBox="0 0 64 64"><use href="#ic-suspension" style="color:#FFB100;"/></svg>
-          <text x="70" y="112" text-anchor="middle" font-family="Roboto Mono, monospace" font-size="12" fill="#9EA2AC">SUSPENSIÓN</text>
-        </g>
-        <!-- callout: eléctrico -->
-        <g>
-          <circle cx="580" cy="70" r="28" fill="#262A33" stroke="#FFB100" stroke-width="2"/>
-          <svg x="562" y="52" width="36" height="36" viewBox="0 0 64 64"><use href="#ic-electrico" style="color:#FFB100;"/></svg>
-          <text x="580" y="112" text-anchor="middle" font-family="Roboto Mono, monospace" font-size="12" fill="#9EA2AC">ELÉCTRICO</text>
-        </g>
-        <!-- callout: frenos -->
-        <g>
-          <circle cx="330" cy="352" r="28" fill="#262A33" stroke="#FFB100" stroke-width="2"/>
-          <svg x="312" y="334" width="36" height="36" viewBox="0 0 64 64"><use href="#ic-frenos" style="color:#FFB100;"/></svg>
-          <text x="330" y="394" text-anchor="middle" font-family="Roboto Mono, monospace" font-size="12" fill="#9EA2AC">FRENOS</text>
-        </g>
-      </svg>
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="hero-car.jpg" width="1000" height="625" alt="Carro sedán, referencia visual de los repuestos que maneja YeisonRepuestos" loading="eager">
+        <svg class="hero-photo-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="10" y1="10" x2="27" y2="66" stroke="#FFB100" stroke-width="0.3" stroke-dasharray="1 1.2" opacity="0.7"/>
+          <line x1="90" y1="10" x2="63" y2="42" stroke="#FFB100" stroke-width="0.3" stroke-dasharray="1 1.2" opacity="0.7"/>
+          <line x1="50" y1="90" x2="76" y2="66" stroke="#FFB100" stroke-width="0.3" stroke-dasharray="1 1.2" opacity="0.7"/>
+          <circle cx="27" cy="66" r="0.8" fill="#FFB100"/>
+          <circle cx="63" cy="42" r="0.8" fill="#FFB100"/>
+          <circle cx="76" cy="66" r="0.8" fill="#FFB100"/>
+        </svg>
+        <div class="hero-callout" style="left:10%; top:10%;" aria-hidden="true">
+          <span class="hero-callout-badge"><svg viewBox="0 0 64 64"><use href="#ic-suspension"></use></svg></span>
+          <span class="hero-callout-label">SUSPENSIÓN</span>
+        </div>
+        <div class="hero-callout" style="left:90%; top:10%;" aria-hidden="true">
+          <span class="hero-callout-badge"><svg viewBox="0 0 64 64"><use href="#ic-electrico"></use></svg></span>
+          <span class="hero-callout-label">ELÉCTRICO</span>
+        </div>
+        <div class="hero-callout" style="left:50%; top:90%;" aria-hidden="true">
+          <span class="hero-callout-badge"><svg viewBox="0 0 64 64"><use href="#ic-frenos"></use></svg></span>
+          <span class="hero-callout-label">FRENOS</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
