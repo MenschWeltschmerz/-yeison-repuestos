@@ -43,6 +43,7 @@
 
   .cat-photo{margin:20px 0 0;border:1.5px solid var(--line);overflow:hidden;}
   .cat-photo img{display:block;width:100%;height:260px;object-fit:cover;}
+  .cat-photo figcaption{font-size:11px;color:var(--ink-soft);font-style:italic;text-align:right;padding:5px 10px;background:var(--surface);}
 
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
   .reveal.is-visible{opacity:1;transform:none;}
