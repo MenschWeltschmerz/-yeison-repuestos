@@ -169,9 +169,20 @@
   .hero-photo-wrap{position:relative; margin:0 auto; padding:56px 0 66px;}
   .hero-photo{width:100%; height:auto; display:block;}
   .hero-photo-fade{
-    position:absolute; inset:0; pointer-events:none;
-    background: radial-gradient(ellipse 78% 78% at 50% 46%, transparent 55%, #1e2429 100%);
+    position:absolute; inset:56px 0 66px; pointer-events:none;
+    background: radial-gradient(ellipse 78% 78% at 50% 50%, transparent 55%, #1e2429 100%);
   }
+  .hero-video-toggle{
+    position:absolute; left:10px; bottom:76px; z-index:3;
+    width:44px; height:44px; border-radius:50%; padding:0; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(20,24,28,0.75); color:#fff; border:1.5px solid var(--amber);
+  }
+  .hero-video-toggle:hover{background:var(--amber); color:var(--amber-ink);}
+  .hero-video-toggle svg{width:18px; height:18px;}
+  .hero-video-toggle .ic-play{display:none;}
+  .hero-video-toggle.is-paused .ic-play{display:block;}
+  .hero-video-toggle.is-paused .ic-pause{display:none;}
   .hero-photo-lines{position:absolute; inset:0; width:100%; height:100%; overflow:visible;}
   .hero-callout{position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:6px;}
   .hero-callout-badge{width:56px; height:56px; border-radius:50%; background:var(--graphite-2); border:2px solid var(--amber); display:flex; align-items:center; justify-content:center;}
@@ -515,7 +526,7 @@
     </div>
     <div class="hero-art reveal">
       <div class="hero-photo-wrap">
-        <video class="hero-photo" autoplay muted loop playsinline poster="hero-car.jpg" width="1000" height="625" aria-label="Carro sedán desarmándose y armándose en sus partes, referencia visual de los repuestos que maneja YeisonRepuestos">
+        <video class="hero-photo" autoplay muted loop playsinline poster="hero-poster.jpg" width="1280" height="720" aria-label="Carro sedán desarmándose y armándose en sus partes, referencia visual de los repuestos que maneja YeisonRepuestos">
           <source src="hero-car.mp4" type="video/mp4">
         </video>
         <div class="hero-photo-fade" aria-hidden="true"></div>
@@ -539,10 +550,14 @@
           <span class="hero-callout-badge"><svg viewBox="0 0 64 64"><use href="#ic-frenos"></use></svg></span>
           <span class="hero-callout-label">FRENOS</span>
         </div>
-        <div class="hero-callout" style="left:90.6%; top:66.4%;" aria-hidden="true">
+        <div class="hero-callout" style="left:90.6%; top:calc(83.2% - 34.5px);" aria-hidden="true">
           <span class="hero-callout-badge"><svg viewBox="0 0 64 64"><use href="#ic-llantas"></use></svg></span>
           <span class="hero-callout-label">LLANTAS</span>
         </div>
+        <button type="button" id="hero-video-toggle" class="hero-video-toggle" aria-label="Pausar video">
+          <svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+          <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7,4 20,12 7,20"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -862,6 +877,20 @@
       heroVideo.removeAttribute("autoplay");
       heroVideo.pause();
     }
+  })();
+
+  (function(){
+    var v = document.querySelector("video.hero-photo");
+    var b = document.getElementById("hero-video-toggle");
+    if(!v || !b) return;
+    function sync(){
+      b.setAttribute("aria-label", v.paused ? "Reproducir video" : "Pausar video");
+      b.classList.toggle("is-paused", v.paused);
+    }
+    b.addEventListener("click", function(){ if(v.paused){ v.play(); } else { v.pause(); } });
+    v.addEventListener("play", sync);
+    v.addEventListener("pause", sync);
+    sync();
   })();
 
   (function(){
