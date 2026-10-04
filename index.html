@@ -58,6 +58,7 @@
     --ink-soft:#4B4F58;
     --graphite:#1C1F26;
     --graphite-2:#262A33;
+    --studio-bg: radial-gradient(130% 95% at 50% 105%, #333f45 0%, #1b2226 45%, #14181c 100%);
     --amber:#FFB100;
     --amber-ink:#231A00;
     --rust:#B33A2D;
@@ -149,7 +150,7 @@
 
   /* HERO — simple, one message, one action (like the reference site) */
   .hero{
-    background: radial-gradient(130% 95% at 50% 105%, #333f45 0%, #1b2226 45%, #14181c 100%);
+    background: var(--studio-bg);
     color:#fff; padding:64px 0 56px; position:relative; overflow:hidden;
   }
   .hero::before{
@@ -290,11 +291,12 @@
     transform:translate(-50%,-50%);
     transition: clip-path .5s cubic-bezier(.4,0,.2,1), opacity .4s ease;
   }
+  .il-row .il-thumb{display:none;}
   .il-preview svg{width:56px; height:56px; padding:10px; border-radius:50%; background:rgba(11,12,15,0.72); color:var(--amber);}
   @media (hover:none){ .il-preview{display:none;} }
 
   /* TIPOS DE REPUESTO */
-  .tipos-band{background:var(--graphite); color:#fff; position:relative; overflow:hidden;}
+  .tipos-band{background:var(--studio-bg); color:#fff; position:relative; overflow:hidden;}
   .tipos-band .section-head p{color:#9EA2AC;}
   .tipos-bg{position:absolute; inset:0; width:100%; height:100%; color:var(--amber); opacity:0.07; pointer-events:none; z-index:0;}
   @media (max-width:880px){ .tipos-bg{display:none;} }
@@ -306,6 +308,9 @@
   .tipo-card p{font-size:14.5px; color:#9EA2AC; line-height:1.5; margin:0;}
 
   /* PREGUNTANOS — cómo comprar, sin catálogo autoservicio */
+  .ask-photo{margin:0 0 32px; border:1.5px solid var(--line); overflow:hidden;}
+  .ask-photo img{display:block; width:100%; height:clamp(140px,22vw,260px); object-fit:cover;}
+  .ask-photo figcaption{font-size:11px; color:var(--ink-soft); font-style:italic; text-align:right; padding:5px 10px; background:var(--surface);}
   .ask-steps{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:36px;}
   .ask-step{display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--ink-soft); line-height:1.5;}
   .qs-num{
@@ -351,7 +356,7 @@
   .contact-card p{font-size:14.5px; color:var(--ink-soft); line-height:1.6; margin:0 0 18px;}
 
   /* FOOTER */
-  footer{background:var(--graphite); color:#D6D8DD; padding:48px 0 32px; padding-bottom: calc(32px + env(safe-area-inset-bottom,0px));}
+  footer{background:radial-gradient(130% 95% at 50% -5%, #2a343a 0%, #1b2226 45%, #14181c 100%); color:#D6D8DD; padding:48px 0 32px; padding-bottom: calc(32px + env(safe-area-inset-bottom,0px));}
   .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:32px; padding-bottom:32px; border-bottom:1px solid #33363F;}
   .foot-grid h3{color:#fff; font-size:13.5px; text-transform:uppercase; letter-spacing:0.04em; margin:0 0 14px; font-family:'Oswald';}
   .foot-grid p, .foot-grid a{font-size:14px; color:#B3B6BE; line-height:1.8; text-decoration:none; display:block;}
@@ -396,9 +401,12 @@
     .nav-links, .nav-phone{display:none;}
   }
   @media (max-width:880px){
-    .il-row{grid-template-columns: 32px 1fr auto; row-gap:6px;}
-    .il-row .il-num{display:none;}
-    .il-row .il-desc{grid-column:1 / -1; padding-left:44px;}
+    .il-row{grid-template-columns: 64px 1fr auto; row-gap:6px; column-gap:14px;}
+    .il-row .il-num, .il-row .il-icon{display:none;}
+    .il-row .il-thumb{display:block; grid-column:1; grid-row:1 / span 3; width:64px; height:64px; object-fit:cover; border:1.5px solid var(--line-strong); align-self:start;}
+    .il-row .il-name{grid-column:2 / -1; grid-row:1;}
+    .il-row .il-desc{grid-column:2 / -1; grid-row:2; padding-left:0;}
+    .il-row .il-cta{grid-column:2; grid-row:3; justify-self:start;}
     .tipos-grid{grid-template-columns:1fr;}
     .ask-steps{grid-template-columns:1fr;}
     .grid{grid-template-columns:repeat(2,1fr);}
@@ -744,6 +752,12 @@
       <p>No manejamos catálogo en línea con precios fijos: nos cuentas qué necesitas y buscamos la mejor opción en nuestro inventario.</p>
     </div>
 
+    <!-- Foto de referencia (banco de imágenes, no es el inventario real); reemplazar cuando el cliente entregue fotos propias -->
+    <figure class="ask-photo reveal">
+      <img src="fotos/taller-1.jpg" width="1200" height="400" alt="Llaves y herramientas de taller, imagen de referencia" loading="lazy">
+      <figcaption>Imagen de referencia</figcaption>
+    </figure>
+
     <div class="ask-steps reveal">
       <div class="ask-step"><span class="qs-num">1</span><span>Nos escribes la marca, el modelo y el repuesto que buscas</span></div>
       <div class="ask-step"><span class="qs-num">2</span><span>Revisamos el inventario y te confirmamos si lo tenemos, nuevo o usado</span></div>
@@ -909,6 +923,21 @@
       });
     }, {threshold: 0.15, rootMargin: "0px 0px -40px 0px"});
     reveals.forEach(function(el){ obs.observe(el); });
+  })();
+
+  (function(){
+    document.querySelectorAll("#il-list .il-row").forEach(function(row){
+      var link = row.querySelector(".il-name");
+      if(!link) return;
+      var img = document.createElement("img");
+      img.className = "il-thumb";
+      img.src = "fotos/" + link.getAttribute("href").replace(".html", "") + "-1.jpg";
+      img.alt = "";
+      img.loading = "lazy";
+      img.width = 64; img.height = 64;
+      img.setAttribute("aria-hidden", "true");
+      row.insertBefore(img, row.firstChild);
+    });
   })();
 
   (function(){
