@@ -64,6 +64,9 @@
   .other-cats a:hover{border-color:var(--amber);color:var(--ink);transform:translateY(-2px);}
 
   footer{background:var(--graphite);color:#9EA2AC;padding:28px 0 calc(28px + env(safe-area-inset-bottom,0px));text-align:center;font-size:12px;}
+  .foot-links{margin:10px 0 0;font-size:12.5px;}
+  .foot-links a{color:#D6D8DD;text-decoration-color:var(--amber);text-underline-offset:3px;}
+  .foot-links a:hover{color:var(--amber);}
   .trademark{max-width:640px;margin:10px auto 0;font-size:11px;line-height:1.6;color:#6B6F78;}
 
   .wsp-float{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--amber);color:var(--amber-ink);width:56px;height:56px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;font-size:22px;z-index:50;border:2px solid var(--graphite);}
