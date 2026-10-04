@@ -14,8 +14,9 @@
 
   header{position:sticky;top:0;z-index:40;background:var(--graphite);padding-top:env(safe-area-inset-top,0px);border-bottom:3px solid var(--amber);}
   .nav{display:flex;justify-content:space-between;align-items:center;max-width:860px;margin:0 auto;padding:14px 24px;}
-  .brand{font-family:'Oswald';font-weight:700;font-size:19px;color:#fff;text-decoration:none;}
+  .brand{display:inline-flex;align-items:center;font-family:'Oswald';font-weight:700;font-size:19px;color:#fff;text-decoration:none;}
   .brand span{color:var(--amber);}
+  .brand .brand-mark{width:28px;height:28px;margin-right:8px;flex:none;}
   .back{font-size:13px;color:#D6D8DD;text-decoration:none;border-bottom:1px solid transparent;transition:color .2s, border-color .2s;}
   .back:hover{color:#fff;border-color:var(--amber);}
 

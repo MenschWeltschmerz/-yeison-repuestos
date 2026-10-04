@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="YeisonRepuestos">
+  <polygon points="32,3 58,18 58,46 32,61 6,46 6,18" fill="#FFB100"/>
+  <circle cx="32" cy="32" r="21" fill="none" stroke="#231A00" stroke-width="2" opacity="0.35"/>
+  <path d="M21 19 L32 34 L43 19 M32 34 V48" fill="none" stroke="#1C1F26" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
