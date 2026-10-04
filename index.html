@@ -283,14 +283,14 @@
   .il-row.is-active .il-desc{color:var(--amber-ink);}
   .il-row.is-active .il-cta{color:var(--amber-ink); border-color:var(--amber-ink);}
   .il-preview{
-    position:fixed; width:150px; height:150px; z-index:100;
-    background:var(--graphite); border:2px solid var(--amber);
+    position:fixed; width:220px; height:150px; z-index:100;
+    background:var(--graphite) center/cover no-repeat; border:2px solid var(--amber);
     display:flex; align-items:center; justify-content:center;
     pointer-events:none; opacity:0; clip-path:inset(50%);
     transform:translate(-50%,-50%);
     transition: clip-path .5s cubic-bezier(.4,0,.2,1), opacity .4s ease;
   }
-  .il-preview svg{width:64px; height:64px; color:var(--amber);}
+  .il-preview svg{width:56px; height:56px; padding:10px; border-radius:50%; background:rgba(11,12,15,0.72); color:var(--amber);}
   @media (hover:none){ .il-preview{display:none;} }
 
   /* TIPOS DE REPUESTO */
@@ -945,9 +945,21 @@
       highlight.style.opacity = "1";
     }
 
+    function photoFor(row){
+      var link = row.querySelector(".il-name");
+      var slug = link ? link.getAttribute("href").replace(".html", "") : "";
+      return slug ? "fotos/" + slug + "-1.jpg" : "";
+    }
+    list.addEventListener("mouseenter", function prefetch(){
+      list.removeEventListener("mouseenter", prefetch);
+      list.querySelectorAll(".il-row").forEach(function(r){ var p = photoFor(r); if(p){ new Image().src = p; } });
+    });
+
     list.querySelectorAll(".il-row").forEach(function(row){
       row.addEventListener("mouseenter", function(){
         highlightRow(row);
+        var photo = photoFor(row);
+        preview.style.backgroundImage = photo ? "linear-gradient(rgba(11,12,15,0.35), rgba(11,12,15,0.35)), url(" + photo + ")" : "";
         previewIcon.querySelector("use").setAttribute("href", "#" + row.getAttribute("data-icon"));
         preview.style.clipPath = "inset(0%)";
         preview.style.opacity = "1";
