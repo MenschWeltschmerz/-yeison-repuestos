@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>YeisonRepuestos — Repuestos de Carro en Bogotá</title>
 <meta name="description" content="Repuestos de carro nuevos y usados en Bogotá con envío a nivel nacional. Frenos, suspensión, motor, filtros, eléctricos y más, de todas las marcas. Cotiza por WhatsApp.">
 <!-- TEMPORAL: quitar noindex/nofollow y volver a "index, follow" cuando el sitio pase a Hostinger -->
@@ -39,11 +41,14 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "¿Los repuestos tienen garantía?", "acceptedAnswer": {"@type": "Answer", "text": "Cada repuesto se revisa antes de despacharlo. Escríbenos por WhatsApp y te contamos las condiciones de garantía según sea nuevo o usado."}},
+    {"@type": "Question", "name": "¿Los repuestos tienen garantía?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Los repuestos nuevos tienen el término de garantía indicado en la confirmación de tu pedido (1 año desde la entrega si no se indica otro) y los usados, 3 meses desde la entrega. La garantía cubre que el repuesto funcione correctamente y corresponda a la referencia confirmada. Las condiciones completas están en la política de garantías, cambios y devoluciones de este sitio."}},
+    {"@type": "Question", "name": "¿Cómo hago efectiva la garantía?", "acceptedAnswer": {"@type": "Answer", "text": "Escríbenos por WhatsApp dentro del término de garantía con tu número de pedido, una descripción de la falla y fotos o video. Revisamos el repuesto y te respondemos por escrito. Si la garantía procede, te damos sin costo un cambio por otro igual, la reparación o la devolución del dinero, y te reconocemos el costo del envío."}},
+    {"@type": "Question", "name": "¿Qué hago si el repuesto no es el correcto para mi carro?", "acceptedAnswer": {"@type": "Answer", "text": "Escríbenos dentro de los 5 días hábiles siguientes a la entrega, con el repuesto sin instalar y en su empaque. Si el error fue nuestro, hacemos el cambio o devolvemos el dinero y asumimos el envío. Si los datos del vehículo estaban incompletos o errados, hacemos el cambio si lo tenemos o dejamos un saldo a favor, y el envío corre por cuenta del cliente. Un repuesto ya instalado se cubre solo por garantía por falla."}},
+    {"@type": "Question", "name": "¿Puedo retractarme de la compra?", "acceptedAnswer": {"@type": "Answer", "text": "Si compras para tu propio vehículo, puedes retractarte dentro de los 5 días hábiles siguientes a la entrega, sin explicar el motivo, con el repuesto sin instalar y sin uso. El envío de la devolución corre por tu cuenta y te devolvemos el dinero cuando verificamos el repuesto. El retracto no aplica a talleres, mecánicos ni revendedores."}},
+    {"@type": "Question", "name": "¿Qué información necesitan para cotizar un repuesto?", "acceptedAnswer": {"@type": "Answer", "text": "Marca, línea, modelo (año) y cilindraje de tu vehículo; la placa o el número VIN, cuando sea posible; y una foto del repuesto o su número de referencia. Con eso te enviamos por WhatsApp la confirmación del pedido, con fotos del repuesto, antes de despachar."}},
     {"@type": "Question", "name": "¿Qué formas de pago manejan?", "acceptedAnswer": {"@type": "Answer", "text": "Manejamos varios medios de pago. Te los confirmamos por WhatsApp al coordinar tu pedido."}},
-    {"@type": "Question", "name": "¿Cuánto tarda el envío?", "acceptedAnswer": {"@type": "Answer", "text": "En Bogotá coordinamos domicilio directo. A otras ciudades despachamos por transportadora, con tiempos que dependen del destino."}},
-    {"@type": "Question", "name": "¿Manejan repuestos originales, genéricos y usados?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, manejamos los tres tipos. Te mostramos las opciones disponibles según tu presupuesto para que decidas con la información completa."}},
-    {"@type": "Question", "name": "¿Qué hago si el repuesto no es el correcto para mi carro?", "acceptedAnswer": {"@type": "Answer", "text": "Escríbenos apenas lo recibas y buscamos la solución más conveniente, según el caso."}}
+    {"@type": "Question", "name": "¿Cuánto tarda el envío?", "acceptedAnswer": {"@type": "Answer", "text": "No tenemos punto de atención al público: entregamos a domicilio en Bogotá y enviamos a todo el país por transportadora, con valor declarado. Los tiempos dependen del destino y te los confirmamos al coordinar tu pedido."}},
+    {"@type": "Question", "name": "¿Manejan repuestos originales, genéricos y usados?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, manejamos los tres tipos. Te mostramos las opciones disponibles según tu presupuesto para que decidas con la información completa."}}
   ]
 }
 </script>
@@ -69,12 +74,12 @@
   :root:not([data-theme="light"]){
     @media (prefers-color-scheme: dark){
       --bg:#101216; --surface:#1A1D23; --ink:#F2F2F0; --ink-soft:#B7BAC2;
-      --graphite:#0B0C0F; --graphite-2:#15171C; --line:#2C2F36; --line-strong:#3A3E47;
+      --graphite:#0B0C0F; --graphite-2:#15171C; --line:#2C2F36; --line-strong:#3A3E47; --rust:#E8604F;
     }
   }
   :root[data-theme="dark"]{
     --bg:#101216; --surface:#1A1D23; --ink:#F2F2F0; --ink-soft:#B7BAC2;
-    --graphite:#0B0C0F; --graphite-2:#15171C; --line:#2C2F36; --line-strong:#3A3E47;
+    --graphite:#0B0C0F; --graphite-2:#15171C; --line:#2C2F36; --line-strong:#3A3E47; --rust:#E8604F;
   }
   *{box-sizing:border-box;}
   html{scroll-padding-top: calc(72px + env(safe-area-inset-top,0px)); scroll-behavior:smooth;}
@@ -190,7 +195,7 @@
   .hero-callout{position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:6px;}
   .hero-callout-badge{width:56px; height:56px; border-radius:50%; background:var(--graphite-2); border:2px solid var(--amber); display:flex; align-items:center; justify-content:center;}
   .hero-callout-badge svg{width:36px; height:36px; color:var(--amber);}
-  .hero-callout-label{font-family:'Roboto Mono', monospace; font-size:12px; color:#9EA2AC; white-space:nowrap;}
+  .hero-callout-label{font-family:'Roboto Mono', monospace; font-size:12px; color:#B3B6BE; white-space:nowrap;}
   .hero .kicker{
     font-family:'Roboto Mono', monospace; font-size:13px; color:var(--amber);
     letter-spacing:0.03em; display:block; margin-bottom:14px;
@@ -299,7 +304,8 @@
 
   /* TIPOS DE REPUESTO */
   .tipos-band{background:var(--studio-bg); color:#fff; position:relative; overflow:hidden;}
-  .tipos-band .section-head p{color:#9EA2AC;}
+  .tipos-band .section-head h2{color:#fff;}
+  .tipos-band .section-head p{color:#B3B6BE;}
   .tipos-bg{position:absolute; inset:0; width:100%; height:100%; color:var(--amber); opacity:0.07; pointer-events:none; z-index:0;}
   @media (max-width:880px){ .tipos-bg{display:none;} }
   .tipos-band > .wrap{position:relative; z-index:1;}
@@ -320,6 +326,35 @@
   .tipo-card p{font-size:14.5px; color:#9EA2AC; line-height:1.5; margin:0;}
 
   /* PREGUNTANOS — cómo comprar, sin catálogo autoservicio */
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+  .quote-form{background:var(--surface); border:1.5px solid var(--line); padding:26px 24px; margin:0 0 36px; scroll-margin-top:90px;}
+  .quote-form h3{font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:21px; margin:0 0 8px; color:var(--ink);}
+  .quote-hint{font-size:13.5px; color:var(--ink-soft); line-height:1.5; margin:0 0 20px; max-width:70ch;}
+  .quote-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:18px;}
+  .quote-form .field{display:flex; flex-direction:column; gap:6px; min-width:0; border:0; padding:0; margin:0;}
+  .quote-form label, .quote-form legend{font-size:13px; font-weight:600; color:var(--ink); padding:0;}
+  .quote-form input[type="text"], .quote-form select{
+    width:100%; padding:12px 14px; font:inherit; font-size:16px; color:var(--ink);
+    background:var(--bg); border:1.5px solid var(--line-strong); border-radius:0;
+  }
+  .quote-form input::placeholder{color:var(--ink-soft); opacity:.75;}
+  .quote-form input[aria-invalid="true"], .quote-form select[aria-invalid="true"]{border-color:var(--rust);}
+  .quote-who{grid-column:span 2;}
+  .quote-form .radio{display:flex; align-items:center; gap:8px; font-weight:500; font-size:14.5px; min-height:44px; cursor:pointer;}
+  .quote-form .radio input{width:18px; height:18px; accent-color:var(--amber); margin:0;}
+  .quote-who{flex-direction:row !important; flex-wrap:wrap; align-items:center; gap:4px 22px !important;}
+  .quote-who legend{width:100%; margin-bottom:2px;}
+  .quote-error{color:var(--rust); font-size:14px; font-weight:600; margin:0 0 14px;}
+  .quote-status{font-size:14px; color:var(--ink-soft); margin:14px 0 0;}
+  .quote-status a{color:var(--ink); text-decoration:underline; text-decoration-color:var(--amber); text-decoration-thickness:2px; text-underline-offset:3px;}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .quote-error{color:#FF8F80;}
+    :root:not([data-theme="light"]) .quote-form [aria-invalid="true"]{border-color:#FF8F80;}
+  }
+  :root[data-theme="dark"] .quote-error{color:#FF8F80;}
+  :root[data-theme="dark"] .quote-form [aria-invalid="true"]{border-color:#FF8F80;}
+  @media (max-width:880px){ .quote-grid{grid-template-columns:repeat(2,1fr);} .quote-who{grid-column:span 2;} }
+  @media (max-width:520px){ .quote-grid{grid-template-columns:1fr;} .quote-who{grid-column:auto;} }
   .ask-photo{margin:0 0 32px; border:1.5px solid var(--line); overflow:hidden;}
   .ask-photo img{display:block; width:100%; height:clamp(140px,22vw,260px); object-fit:cover;}
   .ask-photo figcaption{font-size:11px; color:var(--ink-soft); font-style:italic; text-align:right; padding:5px 10px; background:var(--surface);}
@@ -351,6 +386,8 @@
   .faq-item[open] summary::after{content:"−";}
   .faq-item[open] summary{border-bottom:1px solid var(--line); margin-bottom:14px;}
   .faq-item p{font-size:14.5px; color:var(--ink-soft); line-height:1.6; margin:0 0 16px;}
+  .faq-link{color:var(--ink); text-decoration:underline; text-decoration-color:var(--amber); text-decoration-thickness:2px; text-underline-offset:3px;}
+  .faq-link:hover{color:var(--rust);}
 
   /* QUIENES SOMOS + STATS */
   .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:36px;}
@@ -373,8 +410,8 @@
   .foot-grid h3{color:#fff; font-size:13.5px; text-transform:uppercase; letter-spacing:0.04em; margin:0 0 14px; font-family:'Oswald';}
   .foot-grid p, .foot-grid a{font-size:14px; color:#B3B6BE; line-height:1.8; text-decoration:none; display:block;}
   .foot-grid a:hover{color:var(--amber);}
-  .foot-bottom{display:flex; justify-content:space-between; padding-top:20px; font-size:12.5px; color:#7C8087; flex-wrap:wrap; gap:8px;}
-  .trademark-note{font-size:11.5px; color:#5E6169; line-height:1.6; margin:14px 0 0; max-width:80ch;}
+  .foot-bottom{display:flex; justify-content:space-between; padding-top:20px; font-size:12.5px; color:#A0A4AD; flex-wrap:wrap; gap:8px;}
+  .trademark-note{font-size:11.5px; color:#A0A4AD; line-height:1.6; margin:14px 0 0; max-width:80ch;}
 
   .wsp-float{
     position:fixed; right:20px; bottom:calc(20px + env(safe-area-inset-bottom,0px));
@@ -542,7 +579,7 @@
       <h1>YEISONREPUESTOS</h1>
       <p class="lede">El repuesto que buscas, sin vueltas ni sobreprecio. Nuevos y usados, de todas las marcas.</p>
       <a class="btn btn-primary" href="https://wa.me/573142588506" target="_blank" rel="noopener">¡Escríbenos! →</a>
-      <p style="font-family:'Roboto Mono',monospace; font-size:12.5px; color:#9EA2AC; margin:14px 0 0;">✓ Revisamos cada repuesto antes de despacharlo</p>
+      <p style="font-family:'Roboto Mono',monospace; font-size:12.5px; color:#B3B6BE; margin:14px 0 0;">✓ Revisamos cada repuesto antes de despacharlo</p>
     </div>
     <div class="hero-art reveal">
       <div class="hero-photo-wrap">
@@ -776,6 +813,67 @@
       <div class="ask-step"><span class="qs-num">3</span><span>Te damos el precio y coordinamos domicilio o envío</span></div>
     </div>
 
+    <form class="quote-form reveal" id="cotizar" aria-labelledby="quote-title" novalidate>
+      <h3 id="quote-title">Cuéntanos tu vehículo y el repuesto</h3>
+      <p class="quote-hint">Llena lo que sepas y se abre WhatsApp con el mensaje ya escrito para que solo lo envíes. Los datos no se guardan en este sitio. Los campos con <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> son obligatorios.</p>
+      <div class="quote-grid">
+        <div class="field">
+          <label for="q-marca">Marca <span aria-hidden="true">*</span></label>
+          <input id="q-marca" name="marca" type="text" list="q-marcas" required autocomplete="off" placeholder="Ej. Mazda">
+          <datalist id="q-marcas">
+            <option value="Chevrolet"></option><option value="Renault"></option><option value="Mazda"></option><option value="Toyota"></option>
+            <option value="Kia"></option><option value="Ford"></option><option value="Hyundai"></option><option value="Nissan"></option>
+          </datalist>
+        </div>
+        <div class="field">
+          <label for="q-linea">Línea y modelo <span aria-hidden="true">*</span></label>
+          <input id="q-linea" name="linea" type="text" required autocomplete="off" placeholder="Ej. 3 Sport">
+        </div>
+        <div class="field">
+          <label for="q-anio">Año <span aria-hidden="true">*</span></label>
+          <input id="q-anio" name="anio" type="text" inputmode="numeric" maxlength="4" required autocomplete="off" placeholder="Ej. 2018">
+        </div>
+        <div class="field">
+          <label for="q-cil">Cilindraje</label>
+          <input id="q-cil" name="cil" type="text" autocomplete="off" placeholder="Ej. 2.0">
+        </div>
+        <div class="field">
+          <label for="q-cat">Tipo de repuesto <span aria-hidden="true">*</span></label>
+          <select id="q-cat" name="cat" required>
+            <option value="">Elige una opción</option>
+            <option>Filtros y lubricantes</option>
+            <option>Suspensión y dirección</option>
+            <option>Partes de motor</option>
+            <option>Partes de caja</option>
+            <option>Partes eléctricas</option>
+            <option>Frenos</option>
+            <option>Combustible</option>
+            <option>Refrigeración</option>
+            <option>Embrague</option>
+            <option>Carrocería</option>
+            <option>Llantas y rines</option>
+            <option>Otro / no estoy seguro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="q-rep">Repuesto específico</label>
+          <input id="q-rep" name="rep" type="text" autocomplete="off" placeholder="Ej. pastillas delanteras">
+        </div>
+        <div class="field">
+          <label for="q-placa">Placa o VIN (opcional)</label>
+          <input id="q-placa" name="placa" type="text" autocomplete="off" placeholder="Ej. ABC123">
+        </div>
+        <fieldset class="field quote-who">
+          <legend>Compro para</legend>
+          <label class="radio"><input type="radio" name="para" value="Mi vehículo" checked> Mi vehículo</label>
+          <label class="radio"><input type="radio" name="para" value="Mi taller o negocio"> Mi taller o negocio</label>
+        </fieldset>
+      </div>
+      <p class="quote-error" id="quote-error" role="alert" hidden></p>
+      <button type="submit" class="btn btn-primary">Enviar por WhatsApp →</button>
+      <p class="quote-status" id="quote-status" role="status" hidden></p>
+    </form>
+
     <span class="strip-label" style="text-align:left; margin-bottom:14px;">O CUÉNTANOS QUÉ TIPO DE REPUESTO BUSCAS</span>
     <div class="ask-chips">
       <a class="ask-chip" target="_blank" rel="noopener" href="https://wa.me/573142588506?text=Hola%2C%20estoy%20buscando%20un%20repuesto%20de%20Frenos%20para%20mi%20carro">Frenos</a>
@@ -804,7 +902,23 @@
     <div class="faq-list reveal">
       <details class="faq-item">
         <summary>¿Los repuestos tienen garantía?</summary>
-        <p>Cada repuesto se revisa antes de despacharlo. Escríbenos por WhatsApp y te contamos las condiciones de garantía según sea nuevo o usado.</p>
+        <p>Sí. Los repuestos nuevos tienen el término de garantía indicado en la confirmación de tu pedido (1 año desde la entrega si no se indica otro) y los usados, 3 meses desde la entrega. La garantía cubre que el repuesto funcione correctamente y corresponda a la referencia confirmada. Lee las <a class="faq-link" href="politica-garantias.html#sec-2">condiciones completas</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo hago efectiva la garantía?</summary>
+        <p>Escríbenos por WhatsApp dentro del término de garantía con tu número de pedido, una descripción de la falla y fotos o video. Revisamos el repuesto y te respondemos por escrito. Si la garantía procede, te damos sin costo un cambio por otro igual, la reparación o la devolución del dinero, y te reconocemos el costo del envío. <a class="faq-link" href="politica-garantias.html#sec-5">Ver el paso a paso</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué hago si el repuesto no es el correcto para mi carro?</summary>
+        <p>Escríbenos dentro de los 5 días hábiles siguientes a la entrega, con el repuesto sin instalar y en su empaque. Si el error fue nuestro, hacemos el cambio o devolvemos el dinero y asumimos el envío. Si los datos del vehículo estaban incompletos o errados, hacemos el cambio si lo tenemos o dejamos un saldo a favor, y el envío corre por cuenta del cliente. Un repuesto ya instalado se cubre solo por garantía por falla. <a class="faq-link" href="politica-garantias.html#sec-7">Ver los casos</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo retractarme de la compra?</summary>
+        <p>Si compras para tu propio vehículo, puedes retractarte dentro de los 5 días hábiles siguientes a la entrega, sin explicar el motivo, con el repuesto sin instalar y sin uso. El envío de la devolución corre por tu cuenta y te devolvemos el dinero cuando verificamos el repuesto. El retracto no aplica a talleres, mecánicos ni revendedores. <a class="faq-link" href="politica-garantias.html#sec-8">Leer más</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué información necesitan para cotizar un repuesto?</summary>
+        <p>Marca, línea, modelo (año) y cilindraje de tu vehículo; la placa o el número VIN, cuando sea posible; y una foto del repuesto o su número de referencia. Con eso te enviamos por WhatsApp la confirmación del pedido, con fotos del repuesto, antes de despachar. Puedes llenar el <a class="faq-link" href="#cotizar">formulario de cotización</a> y se arma el mensaje por ti.</p>
       </details>
       <details class="faq-item">
         <summary>¿Qué formas de pago manejan?</summary>
@@ -812,15 +926,11 @@
       </details>
       <details class="faq-item">
         <summary>¿Cuánto tarda el envío?</summary>
-        <p>En Bogotá coordinamos domicilio directo. A otras ciudades despachamos por transportadora, con tiempos que dependen del destino.</p>
+        <p>No tenemos punto de atención al público: entregamos a domicilio en Bogotá y enviamos a todo el país por transportadora, con valor declarado. Los tiempos dependen del destino y te los confirmamos al coordinar tu pedido.</p>
       </details>
       <details class="faq-item">
         <summary>¿Manejan repuestos originales, genéricos y usados?</summary>
         <p>Sí, manejamos los tres tipos. Te mostramos las opciones disponibles según tu presupuesto para que decidas con la información completa.</p>
-      </details>
-      <details class="faq-item">
-        <summary>¿Qué hago si el repuesto no es el correcto para mi carro?</summary>
-        <p>Escríbenos apenas lo recibas y buscamos la solución más conveniente, según el caso.</p>
       </details>
     </div>
   </div>
@@ -908,6 +1018,66 @@
       } else {
         (window.dataLayer = window.dataLayer || []).push({event: "whatsapp_click", page: "index", link_text: text});
       }
+    });
+  })();
+
+  (function(){
+    var form = document.getElementById("cotizar");
+    if(!form) return;
+    var err = document.getElementById("quote-error");
+    var status = document.getElementById("quote-status");
+    var required = ["q-marca", "q-linea", "q-anio", "q-cat"];
+    var labels = {"q-marca": "marca", "q-linea": "línea y modelo", "q-anio": "año", "q-cat": "tipo de repuesto"};
+
+    function val(id){ return (document.getElementById(id).value || "").trim(); }
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var missing = [];
+      required.forEach(function(id){
+        var el = document.getElementById(id);
+        var bad = !val(id) || (id === "q-anio" && !/^(19|20)\d{2}$/.test(val(id)));
+        el.setAttribute("aria-invalid", bad ? "true" : "false");
+        if(bad) missing.push(id);
+      });
+      if(missing.length){
+        var first = missing[0];
+        err.textContent = missing.indexOf("q-anio") > -1 && val("q-anio")
+          ? "Revisa el año: escríbelo con 4 números, por ejemplo 2018."
+          : "Falta completar: " + missing.map(function(id){ return labels[id]; }).join(", ") + ".";
+        err.hidden = false;
+        document.getElementById(first).focus();
+        return;
+      }
+      err.hidden = true;
+
+      var vehiculo = [val("q-marca"), val("q-linea"), val("q-anio")].join(" ");
+      if(val("q-cil")) vehiculo += " – " + val("q-cil");
+      var repuesto = val("q-cat") + (val("q-rep") ? " – " + val("q-rep") : "");
+      var lines = ["Hola, quiero cotizar un repuesto.", "Vehículo: " + vehiculo];
+      if(val("q-placa")) lines.push("Placa/VIN: " + val("q-placa"));
+      lines.push("Repuesto: " + repuesto);
+      lines.push("Compro para: " + form.elements["para"].value);
+      var url = "https://wa.me/573142588506?text=" + encodeURIComponent(lines.join("\n"));
+
+      if(typeof window.gtag === "function"){
+        window.gtag("event", "whatsapp_quote_form", {page: "index", category: val("q-cat")});
+      } else {
+        (window.dataLayer = window.dataLayer || []).push({event: "whatsapp_quote_form", page: "index", category: val("q-cat")});
+      }
+
+      window.open(url, "_blank", "noopener");
+      status.innerHTML = "";
+      status.appendChild(document.createTextNode("Abrimos WhatsApp con tu mensaje. Si no se abrió, "));
+      var a = document.createElement("a");
+      a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = "tócalo aquí";
+      status.appendChild(a);
+      status.appendChild(document.createTextNode("."));
+      status.hidden = false;
+    });
+
+    form.addEventListener("input", function(e){
+      if(e.target.getAttribute && e.target.getAttribute("aria-invalid") === "true"){ e.target.setAttribute("aria-invalid", "false"); }
     });
   })();
 
